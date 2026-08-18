@@ -3,10 +3,6 @@ models.py
 =========
 Modelos usados nos experimentos de HAR/CL.
 
-A normalização "Continual Normalization" (CN8/replace_bn) agora usa a
-implementação ORIGINAL do repositório da autora (`CN.py`, enviado
-posteriormente e copiado para dentro deste pacote) em vez da reconstrução
-best-effort da primeira versão deste módulo.
 """
 from __future__ import annotations
 
