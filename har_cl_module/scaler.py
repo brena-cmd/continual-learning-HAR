@@ -21,7 +21,6 @@ class IncrementalScalerTransform:
         x_np = x.cpu().numpy().reshape(1, -1)
         x_norm = self.scaler.transform(x_np)
         
-        # ✅ CORREÇÃO: atribuir o resultado do reshape
         x_normalized = torch.from_numpy(x_norm).to(orig_device).to(orig_dtype)
         x_normalized = x_normalized.reshape(orig_shape)  # Atribui o resultado
         
