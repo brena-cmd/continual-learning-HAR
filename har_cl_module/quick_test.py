@@ -4,7 +4,7 @@ quick_test.py
 Teste rápido ("smoke test") do módulo generalizado e integrado.
 
 Executa TODAS as
-12 estratégias remanescentes (iCaRL removido) em:
+12 estratégias remanescentes em:
 
   1. Class-IL  Tabular      (cenário mais barato -> roda as 12 estratégias)
   2. Domain-IL Tabular       (valida o benchmark_from_datasets genérico)
