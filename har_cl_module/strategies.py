@@ -2,17 +2,13 @@
 strategies.py
 =============
 Fábrica ÚNICA e generalizada de estratégias de Continual Learning, cobrindo
-exatamente as 12 estratégias que permanecem no escopo da dissertação (iCaRL
-foi removido):
+exatamente as 12 estratégias que permanecem no escopo da dissertação:
 
     Naive, Replay, EWC, LWF, AGEM, GEM, DER,
     replay-LWF   (-> 'ReplayLWF': Replay como strategy base + LwFPlugin)
     LWF-replay   (-> 'LWFReplay': LwF como strategy base + ReplayPlugin)
     MIR, Cumulative (upper bound CL), Joint (upper bound offline/real)
 
-Consolida em uma função só a lógica que antes estava duplicada e levemente
-divergente entre `class-il-tabular/*.py`, `class-il-timeseries/*.py`,
-`domain-il-tabular/*.py` e `domain-il-timeseries/*.py`.
 """
 from __future__ import annotations
 
@@ -46,13 +42,6 @@ class SafeEWCPlugin(EWCPlugin):
     NUNCA dispara no caso comum de `device = torch.device("cuda" if
     torch.cuda.is_available() else "cpu")`. Confirmado empiricamente.
 
-    IMPORTANTE: subclassar a strategy `avalanche.training.EWC` e sobrescrever
-    `compute_importances` (como no script original da autora,
-    `class-il-timeseries/EWC-class-il-all-strategies-std-inc.py`) NÃO
-    funciona nesta versão do Avalanche, porque `EWC` (a strategy) cria seu
-    PRÓPRIO `EWCPlugin` internamente e é esse plugin — não a strategy — quem
-    de fato roda `compute_importances`. Por isso construímos EWC aqui como
-    `Naive` + este plugin customizado, em vez de usar a classe `EWC`.
     """
 
     def compute_importances(self, model, criterion, optimizer, dataset, device,
