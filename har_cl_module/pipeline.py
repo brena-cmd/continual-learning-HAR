@@ -10,8 +10,6 @@ parametrizável por:
   - scenario      : 'class_il' | 'domain_il'
   - quick         : usa dados sintéticos pequenos + 1 época (smoke test)
 
-Isso substitui os ~12 scripts quase-duplicados do repositório original por
-um único ponto de entrada parametrizado.
 """
 from __future__ import annotations
 
